@@ -36,11 +36,11 @@ RUN mkdir -p /usr/src/spandsp && \
 	make && \
 	make install
 
-### Build Asterisk 17
+### Build Asterisk 16
 RUN cd /usr/src \
-	&& wget http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-17.0.0.tar.gz \
-	&& tar xfz asterisk-17.0.0.tar.gz \
-	&& rm -f asterisk-17.0.0.tar.gz \
+	&& wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz \
+	&& tar xfz asterisk-16-current.tar.gz \
+	&& rm -f asterisk-16-current.tar.gz \
 	&& cd asterisk-* \
 	&& contrib/scripts/get_mp3_source.sh \
 	&& ./configure --with-resample --with-pjproject-bundled --with-jansson-bundled --with-ssl=ssl --with-srtp \
