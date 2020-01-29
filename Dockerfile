@@ -36,7 +36,7 @@ RUN mkdir -p /usr/src/spandsp && \
 	make && \
 	make install
 
-### Build Asterisk 17
+### Build Asterisk 17.
 RUN cd /usr/src \
 	&& wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-17-current.tar.gz \
 	&& tar xfz asterisk-17-current.tar.gz \
