@@ -34,13 +34,13 @@ RUN mkdir -p /usr/src/spandsp && \
 	cd /usr/src/spandsp && \
 	./configure && \
 	make && \
-	make install 
+	make install
 
-### Build Asterisk 15.7.2
+### Build Asterisk 17
 RUN cd /usr/src \
-	&& wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-15.7.2.tar.gz \
-	&& tar xfz asterisk-15.7.2.tar.gz \
-	&& rm -f asterisk-15.7.2.tar.gz \
+	&& wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-17-current.tar.gz \
+	&& tar xfz asterisk-17-current.tar.gz \
+	&& rm -f asterisk-17-current.tar.gz \
 	&& cd asterisk-* \
 	&& contrib/scripts/get_mp3_source.sh \
 	&& ./configure --with-resample --with-pjproject-bundled --with-jansson-bundled --with-ssl=ssl --with-srtp \
@@ -77,11 +77,11 @@ RUN sed -i 's/^upload_max_filesize = 2M/upload_max_filesize = 120M/' /etc/php/5.
 COPY ./config/odbcinst.ini /etc/odbcinst.ini
 COPY ./config/odbc.ini /etc/odbc.ini
 
-### Install FreePBX 14.0 latest
+### Install FreePBX 15.0 latest
 RUN cd /usr/src \
-	&& wget http://mirror.freepbx.org/modules/packages/freepbx/freepbx-14.0-latest.tgz \
-	&& tar xfz freepbx-14.0-latest.tgz \
-	&& rm -f freepbx-14.0-latest.tgz \
+	&& wget http://mirror.freepbx.org/modules/packages/freepbx/freepbx-15.0-latest.tgz \
+	&& tar xfz freepbx-15.0-latest.tgz \
+	&& rm -f freepbx-15.0-latest.tgz \
 	&& cd freepbx \
 	&& chown mysql:mysql -R /var/lib/mysql/* \
 	&& /etc/init.d/mysql start \
@@ -121,7 +121,7 @@ RUN	git clone https://github.com/BelledonneCommunications/bcg729 /usr/src/bcg729
 
 RUN sed -i 's/^user		= mysql/user		= root/' /etc/mysql/my.cnf
 
-### Cleanup 
+### Cleanup
 RUN mkdir -p /var/run/fail2ban && \
              cd / && \
              rm -rf /usr/src/* /tmp/* /etc/cron* && \
