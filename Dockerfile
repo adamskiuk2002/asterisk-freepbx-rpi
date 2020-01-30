@@ -102,7 +102,7 @@ RUN cd /usr/src \
 
 RUN a2enmod rewrite
 
-### Add G729 Codecs 1.0.4 for Asterisk 15
+### Add G729 Codecs 1.0.4 for Asterisk 16
 RUN	git clone https://github.com/BelledonneCommunications/bcg729 /usr/src/bcg729 ; \
 	cd /usr/src/bcg729 ; \
 	git checkout tags/1.0.4 ; \
@@ -116,7 +116,7 @@ RUN	git clone https://github.com/BelledonneCommunications/bcg729 /usr/src/bcg729
 	git clone https://bitbucket.org/arkadi/asterisk-g72x.git /usr/src/asterisk-g72x ; \
 	cd /usr/src/asterisk-g72x ; \
 	./autogen.sh ; \
-	./configure CFLAGS='-march=armv7' --with-bcg729 --with-asterisk150 --enable-penryn; \
+	./configure CFLAGS='-march=armv7' --with-bcg729 --with-asterisk160 --enable-penryn; \
 	make ; \
 	make install
 
